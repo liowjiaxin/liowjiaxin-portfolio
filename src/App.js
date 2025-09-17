@@ -35,7 +35,7 @@ const App = () => {
         <section id = "about" className="card">
           <h3 className="section-title">About Me</h3>
           <p>
-            I'm a Computer Science graduate with a strong focus on artificial intelligence and software engineering. I am passionate about leveraging my skills to build intelligent systems and solve complex, real-world problems. My experience spans from academic research projects to practical application development.
+          I am a First-Class Honours graduate in Computer Science, specializing in Artificial Intelligence. I am passionate about leveraging my skills to build intelligent systems and solve complex, real-world problems. My experience spans from academic research to practical application development.              
           </p>
         </section>
 
@@ -48,6 +48,23 @@ const App = () => {
             ))}
           </div>
         </section>
+
+        {/* Honours and Awards */}
+        <section id="honours" className="card">
+                <h3 className="section-title">Honours and Awards</h3>
+                <ul>
+                    <li>
+                      <b>First-Class Honours</b> – BSc Computer Science with Artificial Intelligence, University of Nottingham Malaysia (2025)
+                    </li>
+                    <li>
+                      <b>Finalist, PayHack 25 Hackathon</b> (Consolation Award) – Organized by PayNet in collaboration with Ant International and supported by APU, (2025)
+                      <br />Developed an AI-driven solution addressing MSME onboarding in QR payment.
+                    </li>
+                    <li>
+                      <b>Straight A’s, SPM</b> – Awarded for achieving 10A’s in national examinations (2019)
+                    </li>
+                </ul>
+            </section>
 
         {/* Skills */}
         <section id="skills" className="card">

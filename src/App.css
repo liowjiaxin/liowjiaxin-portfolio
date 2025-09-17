@@ -94,6 +94,7 @@ body {
   font-weight: 600;
   transition: color 0.2s;
 }
+
 .nav-link:hover {
   color: var(--accent-color);
 }
