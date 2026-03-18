@@ -310,10 +310,10 @@ export default function App() {
           <h3 className="section__title">Contact</h3>
           <p className="section__sub">Open to full-time roles, freelance projects, and collaborations.</p>
           <div className="contact__links">
-            <a href="mailto:liowjiaxin.ljx@email.com" className="contact-card">
+            <a href="mailto:liowjiaxin.ljx@gmail.com" className="contact-card">
               <span className="contact-card__icon"><FaEnvelope /></span>
               <span className="contact-card__label">Email</span>
-              <span className="contact-card__value">liowjiaxin.ljx@email.com</span>
+              <span className="contact-card__value">liowjiaxin.ljx@gmail.com</span>
             </a>
             <a href="https://github.com/liowjiaxin" target="_blank" rel="noopener noreferrer" className="contact-card">
               <span className="contact-card__icon"><FaGithub /></span>
