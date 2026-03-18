@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 const projects = [
   {
@@ -150,7 +149,7 @@ export default function App() {
     return () => observer.disconnect();
   }, []);
 
-  const navItems = ['about', 'experience', 'projects', 'honours', 'skills', 'contact'];
+  const navItems = ['about', 'projects', 'honours', 'skills', 'contact'];
 
   return (
     <div className="app">
@@ -232,26 +231,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* Experience */}
-        <section id="experience" className="section">
-          <h3 className="section__title">Work Experience</h3>
-          <p className="section__sub">Professional software engineering and automation implementations.</p>
-          <div className="honours__list">
-            <div className="honour-item">
-              <span className="honour-item__year">Present<br />(3 mos)</span>
-              <div>
-                <h4 className="honour-item__title">Software Engineer</h4>
-                <p className="honour-item__org">Logistics Automation & Integration</p>
-                <div className="honour-item__desc" style={{ marginTop: '0.75rem' }}>
-                  <p style={{ marginBottom: '0.5rem' }}><strong>• TDSB Automation Bot:</strong> Developed a hybrid cloud/local RPA platform to automate truck dock slot booking logic, completely eliminating manual entry bottlenecks.</p>
-                  <p style={{ marginBottom: '0.5rem' }}><strong>• Shipment Email Extractor:</strong> Engineered an autonomous Python solution that securely parses complex DNATA and SATS shipment emails straight from Outlook to format-structured Excel reports.</p>
-                  <p><strong>• Fleet Management:</strong> Integrated command center operations, establishing active data pipelines and real-time visualization systems.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Projects */}
         <section id="projects" className="section">
           <h3 className="section__title">Projects</h3>
@@ -311,17 +290,17 @@ export default function App() {
           <p className="section__sub">Open to full-time roles, freelance projects, and collaborations.</p>
           <div className="contact__links">
             <a href="mailto:liowjiaxin.ljx@email.com" className="contact-card">
-              <span className="contact-card__icon"><FaEnvelope /></span>
+              <span className="contact-card__icon">✉</span>
               <span className="contact-card__label">Email</span>
               <span className="contact-card__value">liowjiaxin.ljx@email.com</span>
             </a>
             <a href="https://github.com/liowjiaxin" target="_blank" rel="noopener noreferrer" className="contact-card">
-              <span className="contact-card__icon"><FaGithub /></span>
+              <span className="contact-card__icon">⌥</span>
               <span className="contact-card__label">GitHub</span>
               <span className="contact-card__value">github.com/liowjiaxin</span>
             </a>
             <a href="https://linkedin.com/in/jiaxinliow" target="_blank" rel="noopener noreferrer" className="contact-card">
-              <span className="contact-card__icon"><FaLinkedin /></span>
+              <span className="contact-card__icon">in</span>
               <span className="contact-card__label">LinkedIn</span>
               <span className="contact-card__value">linkedin.com/in/jiaxinliow</span>
             </a>
