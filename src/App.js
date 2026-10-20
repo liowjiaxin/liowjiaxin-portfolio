@@ -191,7 +191,7 @@ export default function App() {
           <p className="section__sub">Academic pedigree, degree credentials, and competitive achievements.</p>
           <div className="honours__list">
             <div className="honour-item">
-              <span className="honour-item__year">2021 – 2025</span>
+              <span className="honour-item__year">2022 – 2025</span>
               <div>
                 <h4 className="honour-item__title">BSc (Hons) Computer Science with Artificial Intelligence</h4>
                 <p className="honour-item__org">University of Nottingham Malaysia · First-Class Honours</p>
