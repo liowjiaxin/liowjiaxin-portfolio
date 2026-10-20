@@ -104,7 +104,7 @@ export default function App() {
           <div className="hero__content">
             <p className="hero__eyebrow">Hi, I'm</p>
             <h1 className="hero__name">Liow Jia Xin</h1>
-            <h2 className="hero__role">CS Graduate · AI & Automation Engineer</h2>
+            <h2 className="hero__role">Software Engineer · AI & Automation</h2>
             <p className="hero__bio">
               First-Class Honours in Computer Science (AI). I architect intelligent automation systems,
               production RAG pipelines, and high-reliability client software that solves real business bottlenecks.
@@ -153,7 +153,6 @@ export default function App() {
               <span className="experience-item__period">Present<br />(3 mos)</span>
               <div>
                 <h4 className="experience-item__title">Software Engineer</h4>
-                <p className="experience-item__org">Enterprise & Logistics Automation</p>
                 <div className="experience-item__desc" style={{ marginTop: '0.75rem' }}>
                   <p style={{ marginBottom: '0.5rem' }}>
                     <strong>• Autonomous Dock Slot RPA Platform:</strong> Engineered a hybrid cloud/local RPA platform to automate freight and dock booking workflows, completely eliminating manual entry bottlenecks for high-throughput logistics operations.
