@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/liowjiaxin-portfolio/static/css/main.65bac552.css",
-    "main.js": "/liowjiaxin-portfolio/static/js/main.75508bb6.js",
+    "main.js": "/liowjiaxin-portfolio/static/js/main.3e234fad.js",
     "static/js/453.213c0531.chunk.js": "/liowjiaxin-portfolio/static/js/453.213c0531.chunk.js",
     "index.html": "/liowjiaxin-portfolio/index.html",
     "main.65bac552.css.map": "/liowjiaxin-portfolio/static/css/main.65bac552.css.map",
-    "main.75508bb6.js.map": "/liowjiaxin-portfolio/static/js/main.75508bb6.js.map",
+    "main.3e234fad.js.map": "/liowjiaxin-portfolio/static/js/main.3e234fad.js.map",
     "453.213c0531.chunk.js.map": "/liowjiaxin-portfolio/static/js/453.213c0531.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.65bac552.css",
-    "static/js/main.75508bb6.js"
+    "static/js/main.3e234fad.js"
   ]
 }
