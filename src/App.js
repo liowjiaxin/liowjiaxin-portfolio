@@ -45,7 +45,14 @@ export default function App() {
     return () => observer.disconnect();
   }, []);
 
-  const navItems = ['about', 'experience', 'projects', 'honours', 'skills', 'contact'];
+  const navItems = [
+    { id: 'about', label: 'About' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'education', label: 'Education' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'contact', label: 'Contact' },
+  ];
 
   return (
     <div className="app">
@@ -53,14 +60,14 @@ export default function App() {
         <div className="navbar__inner">
           <span className="navbar__logo" onClick={() => scrollTo('about')}>JX</span>
           <ul className="navbar__links">
-            {navItems.map(id => (
-              <li key={id}>
+            {navItems.map(item => (
+              <li key={item.id}>
                 <button
                   type="button"
-                  onClick={() => scrollTo(id)}
-                  className={`nav-btn ${activeSection === id ? 'nav-btn--active' : ''}`}
+                  onClick={() => scrollTo(item.id)}
+                  className={`nav-btn ${activeSection === item.id ? 'nav-btn--active' : ''}`}
                 >
-                  {id.charAt(0).toUpperCase() + id.slice(1)}
+                  {item.label}
                 </button>
               </li>
             ))}
@@ -89,9 +96,9 @@ export default function App() {
         </div>
         {menuOpen && (
           <div className="mobile-menu">
-            {navItems.map(id => (
-              <button key={id} onClick={() => scrollTo(id)} className="mobile-nav-btn">
-                {id.charAt(0).toUpperCase() + id.slice(1)}
+            {navItems.map(item => (
+              <button key={item.id} onClick={() => scrollTo(item.id)} className="mobile-nav-btn">
+                {item.label}
               </button>
             ))}
           </div>
@@ -125,9 +132,9 @@ export default function App() {
           <div className="about__grid">
             <div className="about__text">
               <p>
-                I'm a Computer Science graduate specialising in Artificial Intelligence from the
+                I hold a <strong>BSc (Hons) in Computer Science with Artificial Intelligence</strong> from the
                 University of Nottingham Malaysia (First-Class Honours, 2025). I'm passionate about
-                bridging the gap between AI research and practical, deployable software.
+                bridging the gap between cutting-edge AI research and practical, high-throughput software systems.
               </p>
               <p>
                 My work spans enterprise RPA automation, RAG-based LLM architectures,
@@ -178,15 +185,19 @@ export default function App() {
           </div>
         </section>
 
-        {/* Honours */}
-        <section id="honours" className="section">
-          <h3 className="section__title">Honours & Awards</h3>
+        {/* Education & Honours */}
+        <section id="education" className="section">
+          <h3 className="section__title">Education & Honours</h3>
+          <p className="section__sub">Academic pedigree, degree credentials, and competitive achievements.</p>
           <div className="honours__list">
             <div className="honour-item">
-              <span className="honour-item__year">2025</span>
+              <span className="honour-item__year">2021 – 2025</span>
               <div>
-                <h4 className="honour-item__title">First-Class Honours — BSc Computer Science (AI)</h4>
-                <p className="honour-item__org">University of Nottingham Malaysia</p>
+                <h4 className="honour-item__title">BSc (Hons) Computer Science with Artificial Intelligence</h4>
+                <p className="honour-item__org">University of Nottingham Malaysia · First-Class Honours</p>
+                <p className="honour-item__desc">
+                  Graduated with First-Class Honours. Specialized in Artificial Intelligence, RAG pipelines, Machine Learning algorithms, and Constraint Optimization.
+                </p>
               </div>
             </div>
             <div className="honour-item">
