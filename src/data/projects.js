@@ -8,24 +8,27 @@ export const projects = [
     details: 'Developed a back-end with FastAPI and a front-end interface, containerized with Docker for deployment. Integrated RAG pipelines with Gemini LLM via LangChain to automate grading and generate detailed feedback. Used FAISS for semantic retrieval, ensuring scalability and robustness.',
     repoLink: 'https://github.com/liowjiaxin/FYP-AutomatedMarking',
     highlight: true,
+    architecture: ['Exam Submissions', 'FAISS Vector Index', 'Gemini RAG Pipeline', 'BLEURT Evaluation'],
   },
   {
     id: 2,
     title: 'TDSB Unified Deployment',
-    tag: 'Client Project',
+    tag: 'Enterprise Automation',
     description: 'Hybrid cloud/local RPA platform for truck dock slot booking. Flask command center + Selenium bots secured with HMAC tokens and PyArmor obfuscation.',
     techStack: ['Python', 'Selenium', 'Flask', 'PyArmor', 'Pandas', 'Render'],
     details: 'Built a cloud command center on Render with SSE live log streaming and HMAC-signed handshake tokens. Local bots run as obfuscated EXE files registered via custom URI protocol. Eliminated 100% of manual booking data entry for a logistics client.',
     highlight: true,
+    architecture: ['Render Cloud API', 'HMAC Auth Handshake', 'Local Selenium Bots', 'Dock Slot Confirmed'],
   },
   {
     id: 3,
     title: 'Shipment Data Extractor',
-    tag: 'Client Project',
+    tag: 'Enterprise Automation',
     description: 'Python automation that parses DNATA and SATS logistics emails from Outlook via MAPI/COM, outputting structured Excel reports with zero credential storage.',
     techStack: ['Python', 'PyWin32', 'Pandas', 'OpenPyXL', 'Regex', 'Batch'],
     details: 'Implemented a factory pattern to detect email sender and delegate to specialized parsers (Regex for DNATA, positional-line for SATS). Used Integrated Windows Authentication to avoid password storage. Delivered as a one-click .bat launcher for non-technical clients.',
     highlight: true,
+    architecture: ['Outlook MAPI Feed', 'Regex & Line Parser', 'Windows Auth', 'Structured Excel Output'],
   },
   {
     id: 4,
@@ -91,6 +94,7 @@ export const skills = {
 
 export const tagColors = {
   'Final Year Project': 'tag-fyp',
+  'Enterprise Automation': 'tag-client',
   'Client Project': 'tag-client',
   'AI / NLP': 'tag-ai',
   'Algorithms': 'tag-algo',

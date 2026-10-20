@@ -7,6 +7,24 @@ export default function ProjectCard({ project }) {
 
   return (
     <div className={`project-card ${project.highlight ? 'project-card--highlight' : ''}`}>
+      {project.architecture && (
+        <div className="project-card__architecture">
+          <div className="architecture-header">
+            <span className="architecture-label">System Flow</span>
+          </div>
+          <div className="architecture-flow">
+            {project.architecture.map((node, i) => (
+              <React.Fragment key={node}>
+                <span className="architecture-node">{node}</span>
+                {i < project.architecture.length - 1 && (
+                  <span className="architecture-arrow">→</span>
+                )}
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
+      )}
+
       <div className="project-card__header">
         <span className={`project-tag ${tagColors[project.tag] || 'tag-default'}`}>{project.tag}</span>
         {project.repoLink && (

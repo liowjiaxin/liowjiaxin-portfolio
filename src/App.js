@@ -1,17 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaSun, FaMoon, FaCheck, FaCopy, FaExternalLinkAlt } from 'react-icons/fa';
 import { projects, skills } from './data/projects';
 import ProjectCard from './components/ProjectCard';
-
+import HeroTerminal from './components/HeroTerminal';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('about');
   const [menuOpen, setMenuOpen] = useState(false);
+  const [copiedEmail, setCopiedEmail] = useState(false);
+
+  // Initialize theme from localStorage or default to dark
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('theme') || 'dark';
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
+  };
 
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     setMenuOpen(false);
+  };
+
+  const handleCopyEmail = (e) => {
+    e.preventDefault();
+    navigator.clipboard.writeText('liowjiaxin.ljx@gmail.com');
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 2200);
   };
 
   useEffect(() => {
@@ -34,6 +56,7 @@ export default function App() {
             {navItems.map(id => (
               <li key={id}>
                 <button
+                  type="button"
                   onClick={() => scrollTo(id)}
                   className={`nav-btn ${activeSection === id ? 'nav-btn--active' : ''}`}
                 >
@@ -42,6 +65,17 @@ export default function App() {
               </li>
             ))}
           </ul>
+
+          <button
+            type="button"
+            className="theme-toggle-btn"
+            onClick={toggleTheme}
+            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+            title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+          >
+            {theme === 'dark' ? <FaSun size={15} /> : <FaMoon size={15} />}
+          </button>
+
           <button
             type="button"
             className="hamburger"
@@ -69,20 +103,18 @@ export default function App() {
           <div className="hero__content">
             <p className="hero__eyebrow">Hi, I'm</p>
             <h1 className="hero__name">Liow Jia Xin</h1>
-            <h2 className="hero__role">CS Graduate · AI & Automation</h2>
+            <h2 className="hero__role">CS Graduate · AI & Automation Engineer</h2>
             <p className="hero__bio">
-              First-Class Honours in Computer Science (AI). I build intelligent automation systems,
-              RAG pipelines, and real-world client software that ships.
+              First-Class Honours in Computer Science (AI). I architect intelligent automation systems,
+              production RAG pipelines, and high-reliability client software that solves real business bottlenecks.
             </p>
             <div className="hero__ctas">
               <button className="btn btn--primary" onClick={() => scrollTo('projects')}>See my work</button>
               <button className="btn btn--outline" onClick={() => scrollTo('contact')}>Get in touch</button>
             </div>
           </div>
-          <div className="hero__badge-grid">
-            {['Python', 'RAG', 'Selenium', 'React', 'Flask', 'TensorFlow'].map(s => (
-              <span key={s} className="hero__badge">{s}</span>
-            ))}
+          <div className="hero__terminal-wrapper">
+            <HeroTerminal />
           </div>
         </section>
 
@@ -97,9 +129,9 @@ export default function App() {
                 bridging the gap between AI research and practical, deployable software.
               </p>
               <p>
-                My recent work spans logistics automation for real clients, RAG-based LLM systems,
-                and constraint programming for scheduling problems. I care deeply about clean
-                architecture, client-ready delivery, and writing code that actually solves problems.
+                My work spans enterprise RPA automation, RAG-based LLM architectures,
+                and constraint programming for complex optimization problems. I care deeply about clean
+                architecture, client-ready delivery, and writing systems that run autonomously in production.
               </p>
             </div>
             <div className="about__stats">
@@ -114,17 +146,23 @@ export default function App() {
         {/* Experience */}
         <section id="experience" className="section">
           <h3 className="section__title">Work Experience</h3>
-          <p className="section__sub">Professional software engineering and automation implementations.</p>
+          <p className="section__sub">Professional software engineering and enterprise automation implementations.</p>
           <div className="experience__list">
             <div className="experience-item">
               <span className="experience-item__period">Present<br />(3 mos)</span>
               <div>
                 <h4 className="experience-item__title">Software Engineer</h4>
-                <p className="experience-item__org">Logistics Automation & Integration</p>
+                <p className="experience-item__org">Enterprise & Logistics Automation</p>
                 <div className="experience-item__desc" style={{ marginTop: '0.75rem' }}>
-                  <p style={{ marginBottom: '0.5rem' }}><strong>• TDSB Automation Bot:</strong> Developed a hybrid cloud/local RPA platform to automate truck dock slot booking logic, completely eliminating manual entry bottlenecks.</p>
-                  <p style={{ marginBottom: '0.5rem' }}><strong>• Shipment Email Extractor:</strong> Engineered an autonomous Python solution that securely parses complex DNATA and SATS shipment emails straight from Outlook to format-structured Excel reports.</p>
-                  <p><strong>• Fleet Management:</strong> Integrated command center operations, establishing active data pipelines and real-time visualization systems.</p>
+                  <p style={{ marginBottom: '0.5rem' }}>
+                    <strong>• Autonomous Dock Slot RPA Platform:</strong> Engineered a hybrid cloud/local RPA platform to automate freight and dock booking workflows, completely eliminating manual entry bottlenecks for high-throughput logistics operations.
+                  </p>
+                  <p style={{ marginBottom: '0.5rem' }}>
+                    <strong>• Logistics Data Extraction Engine:</strong> Architected an autonomous Python solution parsing complex multimodal shipment emails via Outlook MAPI/COM into structured, validated Excel reports with zero credential storage.
+                  </p>
+                  <p>
+                    <strong>• Fleet Operations & Live Monitoring:</strong> Integrated cloud command center infrastructure, deploying real-time SSE log streaming pipelines and operational health telemetry.
+                  </p>
                 </div>
               </div>
             </div>
@@ -134,7 +172,7 @@ export default function App() {
         {/* Projects */}
         <section id="projects" className="section">
           <h3 className="section__title">Projects</h3>
-          <p className="section__sub">A mix of academic research, client work, and personal builds.</p>
+          <p className="section__sub">A mix of academic research, enterprise deployments, and personal builds.</p>
           <div className="projects__grid">
             {projects.map(p => <ProjectCard key={p.id} project={p} />)}
           </div>
@@ -189,18 +227,31 @@ export default function App() {
           <h3 className="section__title">Contact</h3>
           <p className="section__sub">Open to full-time roles, freelance projects, and collaborations.</p>
           <div className="contact__links">
-            <a href="mailto:liowjiaxin.ljx@gmail.com" className="contact-card">
-              <span className="contact-card__icon"><FaEnvelope /></span>
+            <div className="contact-card" onClick={handleCopyEmail} role="button" tabIndex={0}>
+              <div className="contact-card__top">
+                <span className="contact-card__icon"><FaEnvelope /></span>
+                <span className={`contact-card__badge ${copiedEmail ? 'contact-card__badge--copied' : ''}`}>
+                  {copiedEmail ? <><FaCheck /> Copied!</> : <><FaCopy /> Click to copy</>}
+                </span>
+              </div>
               <span className="contact-card__label">Email</span>
               <span className="contact-card__value">liowjiaxin.ljx@gmail.com</span>
-            </a>
+            </div>
+
             <a href="https://github.com/liowjiaxin" target="_blank" rel="noopener noreferrer" className="contact-card">
-              <span className="contact-card__icon"><FaGithub /></span>
+              <div className="contact-card__top">
+                <span className="contact-card__icon"><FaGithub /></span>
+                <span className="contact-card__badge"><FaExternalLinkAlt /> Open</span>
+              </div>
               <span className="contact-card__label">GitHub</span>
               <span className="contact-card__value">github.com/liowjiaxin</span>
             </a>
+
             <a href="https://linkedin.com/in/jiaxinliow" target="_blank" rel="noopener noreferrer" className="contact-card">
-              <span className="contact-card__icon"><FaLinkedin /></span>
+              <div className="contact-card__top">
+                <span className="contact-card__icon"><FaLinkedin /></span>
+                <span className="contact-card__badge"><FaExternalLinkAlt /> Open</span>
+              </div>
               <span className="contact-card__label">LinkedIn</span>
               <span className="contact-card__value">linkedin.com/in/jiaxinliow</span>
             </a>
