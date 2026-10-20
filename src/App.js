@@ -67,6 +67,7 @@ export default function App() {
           </ul>
 
           <button
+            id="theme-toggle-btn"
             type="button"
             className="theme-toggle-btn"
             onClick={toggleTheme}
